@@ -1,14 +1,15 @@
 import React from 'react'
+import { Card } from 'react-bootstrap'
 
 function MovieCard({ movie }) {
     function loaded() {
         return (
-            <>
-                <h1>{movie.Title}</h1>
-                <h3>{movie.Genre}</h3>
-                <img src={movie.Poster} alt={movie.Title} ></img>
-                <h3>{movie.Year}</h3>
-            </>
+            <Card className='bg-dark text-white' border="light" style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={movie.Poster} alt={movie.Title} />
+                <Card.Body>
+                    <Card.Title>{movie.Title}</Card.Title>
+                </Card.Body>
+            </Card>
         )
     }
 
@@ -19,9 +20,9 @@ function MovieCard({ movie }) {
     }
     
     return (
-        <div>
+        <>
             { movie? loaded() : loading() }
-        </div>
+        </>
     )
 }
 

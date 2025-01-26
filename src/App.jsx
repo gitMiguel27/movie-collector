@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import Form from './components/Form/Form'
 import MovieList from './components/MovieList/MovieList'
+import { Container } from 'react-bootstrap'
 
 function App() {
   const apiKey = import.meta.env.VITE_API_KEY
@@ -27,10 +28,10 @@ function App() {
   }, [])
 
   return (
-    <>
+    <Container>
       <Form getMovie={getMovie} />
       <MovieList movieList={movieList} />
-    </>
+    </Container>
   )
 }
 
