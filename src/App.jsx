@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import Form from './components/Form/Form'
+import MovieForm from './components/MovieForm/MovieForm'
 import MovieList from './components/MovieList/MovieList'
 import Header from './components/Header/Header'
 import { Container } from 'react-bootstrap'
@@ -31,7 +31,7 @@ function App() {
   return (
     <Container>
       <Header />
-      <Form getMovie={getMovie} />
+      <MovieForm getMovie={getMovie} />
       <MovieList movieList={movieList} />
     </Container>
   )
