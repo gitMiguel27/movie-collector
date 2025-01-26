@@ -34,7 +34,7 @@ function App() {
       <Header />
       <Welcome />
       <MovieForm getMovie={getMovie} />
-      <MovieList movieList={movieList} />
+      <MovieList movieList={movieList} setMovieList={setMovieList} />
     </Container>
   )
 }
