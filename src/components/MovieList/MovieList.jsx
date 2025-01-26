@@ -4,7 +4,7 @@ import { CardGroup } from 'react-bootstrap'
 
 function MovieList({ movieList }) {
   return (
-    <CardGroup>
+    <CardGroup style={{ width: 'max-content' }}>
         {
             movieList.map((movie) => {
               console.log(movie)
