@@ -1,5 +1,6 @@
 .movie-card {
     transition: all 0.3s;
+    cursor: pointer;
 }
 
 .movie-card:hover {
