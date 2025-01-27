@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Form, InputGroup, Button } from 'react-bootstrap'
 
-function MovieForm({ getMovie }) {
+function MovieForm({ getMovie, setMovieList, movieList }) {
     const [formData, setFormData] = useState({
         search: ''
     })
@@ -13,9 +13,10 @@ function MovieForm({ getMovie }) {
         })
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault()
-        getMovie(formData.search)
+        let searchedMovie =  await getMovie(formData.search)
+        setMovieList([searchedMovie, ...movieList])
     }
 
   return (

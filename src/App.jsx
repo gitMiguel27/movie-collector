@@ -15,36 +15,38 @@ function App() {
   const apiKey = import.meta.env.VITE_API_KEY
   const [movieList, setMovieList] = useState([])
   
-  // async function displayFavorites() {
-  //   for (let i = 0; i < favorites.length; i++) {
-  //     getMovie(favorites[i])
-  //   }
-  // }
+  async function displayFavorites() {
+    let favoritesArr = []
+    for (let i = 0; i < favorites.length; i++) {
+      let favorite = await getMovie(favorites[i])
+      favoritesArr.push(favorite)
+    }
+    setMovieList(favoritesArr)
+  }
 
   async function getMovie(search) {
     if (search === undefined) {
-        return
+      return
     }
     try {
       const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&t=${search}`)
       const movieData = await response.json()
   
-      setMovieList((movieList) => [...movieList, movieData])
+      return movieData
     } catch (error) {
       console.error({ error: error.message })
     }
   }
 
   useEffect(() => {
-    // displayFavorites()
-    getMovie()
+    displayFavorites()
   }, [])
 
   return (
     <Container>
       <Header />
       <Welcome />
-      <MovieForm getMovie={getMovie} />
+      <MovieForm getMovie={getMovie} setMovieList={setMovieList} movieList={movieList} />
       <MovieList movieList={movieList} setMovieList={setMovieList} />
     </Container>
   )

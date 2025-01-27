@@ -5,11 +5,11 @@ function MovieList({ movieList, setMovieList }) {
   return (
     <CardGroup style={{ width: 'max-content' }}>
         {
-            movieList.map((movie) => {
-                return (
-                    <MovieCard key={movie.Title} movie={movie} movieList={movieList} setMovieList={setMovieList} />
-                )
-            })
+          movieList.map((movie) => {
+              return (
+                  <MovieCard key={movie.Title} movie={movie} movieList={movieList} setMovieList={setMovieList} />
+              )
+          })
         }
     </CardGroup>
   )
